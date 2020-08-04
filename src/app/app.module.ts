@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CategoriaAntojitosComponent } from './components/categoria-antojitos/categoria-antojitos.component';
@@ -27,7 +29,8 @@ import { ActualizarPlatillosComponent } from './components/platillos-categoria/a
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,22 @@
-<p>actualizar-antojitos works!</p>
+<div class="card">
+    <div class="card-body">
+      <h3>Actualizar categoría</h3><hr>
+        
+            <div class="row">
+                <div class="form-group col-md-12 col-lg-12">
+                    <div>
+                        <input type="text" name="strNombre" id="strNombre" placeholder="Nombre de la categoría" [(ngModel)]="catModel.strNombre" #strNombre="ngModel" width="100%" required>
+                    </div>
+                    <div>
+                        <input type="text" name="strDesc" id="strDesc" cols="30" rows="10" placeholder="Descripción" [(ngModel)]="catModel.strDesc">
+                    </div>
+                </div>
+            </div>
+        <!-- Botones -->
+        <ul class=" list-inline ">
+            <button type="button" class="btn btn-outline-danger" (click)="cancelPUT()">Cancelar</button>
+            <button type="button" class="btn btn-outline-success" (click)="actualizarCategoria()">Actualizar</button>
+        </ul>
+
+    </div>
+  </div>

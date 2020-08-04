@@ -9,7 +9,7 @@ import { PlatillosCategoriaComponent } from './components/platillos-categoria/pl
 
 const routes: Routes = [
   {path: 'categoria-antojitos', component: CategoriaAntojitosComponent},
-  {path: 'gestion-platillos', component: PlatillosCategoriaComponent},
+  {path: 'gestion-platillos/:id', component: PlatillosCategoriaComponent},
   {path: '**', pathMatch: 'full', redirectTo: ' '}
 ];
 
