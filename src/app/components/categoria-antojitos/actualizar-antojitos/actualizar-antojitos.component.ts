@@ -62,6 +62,8 @@ export class ActualizarAntojitosComponent implements OnInit {
         title: `¡La categoría "${this.catModel.strNombre}" fue actualizada exitosamente!`
       });
       this.actualiza.emit();
+      this.actualizarCategorias = false;
+      this.registrarCategorias = true;
     }).catch((err) => {
       console.log(err);
       Toast.fire({
@@ -74,7 +76,7 @@ export class ActualizarAntojitosComponent implements OnInit {
 
   cancelPUT() {
     this.actualiza.emit(false);
-    // this.actualizarCategorias = false;
-    // this.registrarCategorias = true;
+    this.actualizarCategorias = false;
+    this.registrarCategorias = true;
   }
 }
