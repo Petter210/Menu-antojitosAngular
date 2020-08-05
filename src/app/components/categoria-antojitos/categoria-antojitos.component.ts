@@ -37,7 +37,7 @@ export class CategoriaAntojitosComponent implements OnInit {
   //   {strNombre: "Pizzas", strDesc: "Italiana"},
   // ]
 
-  constructor(private categoriaService: CategoriaService, private router: Router, private excelService: ExportDataService,  private _PdfService: PdfServiceService) { }
+  constructor(private categoriaService: CategoriaService, private router: Router, private excelService: ExportDataService, private _PdfService: PdfServiceService) { }
 
   ngOnInit() {
     this.obtenerCategorias();
@@ -52,11 +52,11 @@ export class CategoriaAntojitosComponent implements OnInit {
       this.cate = data.categorias;
       console.log(this.cat);
 
-      for (const trabajo of this.cate) {
+      for (const categoria of this.cate) {
 
         const element = [
-          trabajo.strNombre,
-          trabajo.blnActivo ? 'Activo' : 'Inactivo'
+          categoria.strNombre,
+          categoria.blnActivo ? 'Activo' : 'Inactivo'
         ];
         this.arrCategoria.push(element);
         this. arrCategorianew = this. arrCategoria ;
