@@ -18,6 +18,7 @@ export class CategoriaAntojitosComponent implements OnInit {
   idCat: string;
   actualizarCategoria = false;
   registrarCategoria = true;
+  title: string;
   // antojitos =   [
   //   {strNombre: "Postres", strDesc: "Pasteles"},
   //   {strNombre: "Ensaladas", strDesc: "Espaguqti a la bolonesa"},
@@ -68,30 +69,23 @@ export class CategoriaAntojitosComponent implements OnInit {
   }
 
   exportarExcel(){
-    if (this.categorias.length !== 0) {
-      let jsonobject = JSON.stringify(this.categorias);
-      jsonobject = jsonobject.replace(/strNombre/gi, 'Nombre de la Categoría');
-      jsonobject = jsonobject.replace(/strDesc/gi, 'Descripción');
+    let jsnInfo = {};
+    const jsnObject = [];
   
-      const jsonobject2 = JSON.parse(jsonobject);
-      const count = Object.keys(jsonobject2).length;
-      for (let i = 0; i < count; i++) {
-        delete jsonobject2[i].created_at;
-        delete jsonobject2[i].updated_at;
-        delete jsonobject2[i]._id;
-        delete jsonobject2[i].blnActivo;
-        delete jsonobject2[i].__v;
-        delete jsonobject2[i].aJsnPlatillos;
-      }
+    if (this.cat.length !== 0 ) {
   
-      this.excelService.exportAsExcelFile(jsonobject2, 'Categorias');
-    } else {
-      // Swal.fire({
-      //   type: 'error',
-      //   title: 'Error de exportación',
-      //   text: 'No hay ningún registro para exportar',
-      // });
-    }
+     for (let datos of this.cat) {
+         jsnInfo = {};
+         jsnInfo = {
+           'Categorias': datos.strNombre,
+           'Activo': datos.blnActivo ? 'Activo' : 'Inactivo'
+         };
+         if (jsnInfo !== '') {
+             jsnObject.push(jsnInfo);
+         }
+     }
+     this.excelService.exportAsExcelFile(jsnObject, `${this.title}`);
+     }
   }
   elimiarCategoria(id: string){
     this.categoriaService.eliminarCategoria(id).then((data: any) => {

@@ -113,4 +113,7 @@ input:hover::-webkit-input-placeholder {
 .blue {
     cursor: pointer;
 }
+.dropdown{
+    padding-top: 24px;
+}
 

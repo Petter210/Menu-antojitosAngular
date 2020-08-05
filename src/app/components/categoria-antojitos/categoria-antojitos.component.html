@@ -23,20 +23,22 @@
             <div class="card">
                 <div class="body">
                     <div class="row mb-3" *ngIf="!cargando">
-                        <div class="col-11 btnBuscar">
+                        <div class="col-10 btnBuscar">
                             <div class="input-group">
                                 <input type="text" name="searchText" [(ngModel)]="searchText" class="form-control" placeholder="Buscar...">
                             </div>
                         </div>
 
-                        <div class="col-1 p-0 btnAcciones" >
-                            <button type="button" class="btn btn-primary"><i class="fa fa-ellipsis-h"></i></button>
-                            <div class="dropdown-menu dropdown-menu-right shadow-lg" aria-labelledby="dropdownReports">
-                                <div class="dropdown-header text-primary"><span class="text-xs text-uppercase">EXPORTAR</span></div>
-                                <div class="dropdown-item pdf" ><i class="fa fa-file-pdf-o mr-2"></i>PDF</div>
-                                <div class="dropdown-item excel" (click)="exportarExcel()"><i class="fa fa-file-excel-o mr-2"></i>Excel</div>
+                        <div class="dropdown">
+                            <button class="btn btn-primary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              ...
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item" >ACCIONES</a>
+                              <a class="dropdown-item" href="#">PDF</a>
+                              <a class="dropdown-item" type="button" (click)="exportarExcel()">Excel</a>
                             </div>
-                        </div>
+                          </div>
                     </div>
             
                     <div class="small" [ngClass]="{'table-responsive': !cargando}">
