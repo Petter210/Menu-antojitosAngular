@@ -1,6 +1,14 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { CategoriaModel } from 'src/app/models/categoria.model';
 import { CategoriaService } from 'src/app/services/categoria/categoria.service';
+import Swal from 'sweetalert2';
+
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000
+ });
 
 @Component({
   selector: 'app-actualizar-antojitos',
@@ -36,10 +44,10 @@ export class ActualizarAntojitosComponent implements OnInit {
       console.log(this.catModel);
     }).catch((err) => {
       console.log(err);
-      // Toast.fire({
-      //   icon: 'error',
-      //   title: err.error.msg
-      // });
+      Toast.fire({
+        icon: 'error',
+        title: err.error.msg
+      });
     });
 
   }
@@ -49,17 +57,17 @@ export class ActualizarAntojitosComponent implements OnInit {
 
       console.log(data);
       this.actualiza.emit(true);
-      // Toast.fire({
-      //   icon: 'success',
-      //   title: `¡El espacio de trabajo "${this.trabajo.strNombre}" fue actualizado correctamente!`
-      // });
+      Toast.fire({
+        icon: 'success',
+        title: `¡La categoría "${this.catModel.strNombre}" fue actualizada exitosamente!`
+      });
       this.actualiza.emit();
     }).catch((err) => {
       console.log(err);
-      // Toast.fire({
-      //   icon: 'error',
-      //   title: err.error.msg
-      // });
+      Toast.fire({
+        icon: 'error',
+        title: err.error.msg
+      });
       this.actualiza.emit();
     });
   }

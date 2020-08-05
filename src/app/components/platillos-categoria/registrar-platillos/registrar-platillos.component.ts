@@ -2,6 +2,14 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { PlatillosModel } from 'src/app/models/platillos.model';
 import { CategoriaService } from 'src/app/services/categoria/categoria.service';
 import { ActivatedRoute, Params } from '@angular/router';
+import Swal from 'sweetalert2';
+
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000
+ });
 
 @Component({
   selector: 'app-registrar-platillos',
@@ -26,6 +34,11 @@ export class RegistrarPlatillosComponent implements OnInit {
   registrarPlatillo(){
     this.categoriaService.registrarPlatillos(this.idCategoria, this.platillo).then( (data: any) =>{
       this.actualiza.emit(true);
+      
+      Toast.fire({
+        icon: 'success',
+        title: `¡El platillo "${this.platillo.strNombre}" se agregó exitosamente!`
+      });
 
       this.categoriaService.obtenerPlatillos(this.idCategoria).then( (data) => {
         console.log(data.categorias);
@@ -34,10 +47,10 @@ export class RegistrarPlatillosComponent implements OnInit {
       this.actualiza.emit(true);
 
     }).catch((err) => {
-      // Toast.fire({
-      //   icon: 'error',
-      //   title: err.error.msg
-      // });
+      Toast.fire({
+        icon: 'error',
+        title: err.error.msg
+      });
       console.log(err);
     });
   }

@@ -2,6 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { PlatillosModel } from 'src/app/models/platillos.model';
 import { CategoriaService } from 'src/app/services/categoria/categoria.service';
+import Swal from 'sweetalert2';
+
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000
+ });
 
 @Component({
   selector: 'app-platillos-categoria',
@@ -40,10 +48,10 @@ export class PlatillosCategoriaComponent implements OnInit {
     }).catch( err => {
       this.cargando = false;
       console.log(err);
-      // Toast.fire({
-      //   type: 'error',
-      //   title: `Error al consultar los platillos.`
-      // });
+      Toast.fire({
+        icon: 'error',
+        title: `Error al consultar los platillos.`
+      });
     });
   }
   
