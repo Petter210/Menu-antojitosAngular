@@ -35,10 +35,10 @@
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                               <a class="dropdown-item" >ACCIONES</a>
-                              <a class="dropdown-item" href="#">PDF</a>
+                              <a class="dropdown-item" type="button" (click)="exportarPDF()">PDF</a>
                               <a class="dropdown-item" type="button" (click)="exportarExcel()">Excel</a>
                             </div>
-                          </div>
+                        </div>
                     </div>
             
                     <div class="small" [ngClass]="{'table-responsive': !cargando}">
