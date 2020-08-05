@@ -12,6 +12,7 @@ import { ActualizarAntojitosComponent } from './components/categoria-antojitos/a
 import { FormsModule } from '@angular/forms';
 
 import {NgxPaginationModule} from 'ngx-pagination';
+import { Ng2SearchPipeModule } from 'ng2-search-filter'; // Filtro de la tabla
 import { RegistrarPlatillosComponent } from './components/platillos-categoria/registrar-platillos/registrar-platillos.component';
 import { ActualizarPlatillosComponent } from './components/platillos-categoria/actualizar-platillos/actualizar-platillos.component';
 
@@ -30,7 +31,8 @@ import { ActualizarPlatillosComponent } from './components/platillos-categoria/a
     AppRoutingModule,
     FormsModule,
     NgxPaginationModule,
-    HttpClientModule
+    HttpClientModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

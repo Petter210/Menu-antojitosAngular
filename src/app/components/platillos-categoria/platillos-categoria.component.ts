@@ -31,7 +31,7 @@ export class PlatillosCategoriaComponent implements OnInit {
   arrPlatnew = [];
   idPlatillo: string;
   pla: any;
-
+  pageActual = 1;
   platillo: any;
   actualizarPlatillo = false;
   registrarPlatillo = true;

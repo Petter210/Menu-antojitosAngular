@@ -31,6 +31,7 @@ export class CategoriaAntojitosComponent implements OnInit {
   registrarCategoria = true;
   title: string;
   cate: any;
+  pageActual = 1;
   // antojitos =   [
   //   {strNombre: "Postres", strDesc: "Pasteles"},
   //   {strNombre: "Ensaladas", strDesc: "Espaguqti a la bolonesa"},

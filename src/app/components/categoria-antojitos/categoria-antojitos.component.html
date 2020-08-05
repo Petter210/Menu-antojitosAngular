@@ -59,7 +59,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let a of cat">
+                                <tr *ngFor="let a of cat | filter: searchText | paginate:{itemsPerPage: 5, currentPage: pageActual}">
                                     <td>{{a.strNombre}}</td>
                                     <td>{{a.strDesc}}</td>
                                     <td >{{a.blnActivo == true ? 'Activo': 'Inactivo'}}</td>
