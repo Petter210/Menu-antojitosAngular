@@ -1,0 +1,19 @@
+#strNombre{
+    margin-bottom: 10px;
+}
+#strDesc{
+    resize: none;
+    margin-bottom: 10px;
+}
+
+#strIngre{
+    margin-bottom: 10px;
+}
+
+#nmbPieza{
+    margin-bottom: 10px;
+}
+
+#nmbPrecio{
+    margin-bottom: 10px;
+}

@@ -19,7 +19,7 @@ export class ActualizarAntojitosComponent implements OnInit {
     this.idCat = value;
     this.ngOnInit();
   }
-  @Output() terminarActualizacion = new EventEmitter();
+  @Output() actualiza = new EventEmitter();
 
   catModel: CategoriaModel = new CategoriaModel();
 
@@ -48,24 +48,24 @@ export class ActualizarAntojitosComponent implements OnInit {
     this.categoriaService.actualizarCategoria(this.idCat, this.catModel).then((data: any) => {
 
       console.log(data);
-      this.terminarActualizacion.emit(true);
+      this.actualiza.emit(true);
       // Toast.fire({
       //   icon: 'success',
       //   title: `¡El espacio de trabajo "${this.trabajo.strNombre}" fue actualizado correctamente!`
       // });
-      this.terminarActualizacion.emit();
+      this.actualiza.emit();
     }).catch((err) => {
       console.log(err);
       // Toast.fire({
       //   icon: 'error',
       //   title: err.error.msg
       // });
-      this.terminarActualizacion.emit();
+      this.actualiza.emit();
     });
   }
 
   cancelPUT() {
-    this.terminarActualizacion.emit(false);
+    this.actualiza.emit(false);
     // this.actualizarCategorias = false;
     // this.registrarCategorias = true;
   }

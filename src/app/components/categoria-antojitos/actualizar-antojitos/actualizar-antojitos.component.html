@@ -5,17 +5,23 @@
             <div class="row">
                 <div class="form-group col-md-12 col-lg-12">
                     <div>
-                        <input type="text" name="strNombre" id="strNombre" placeholder="Nombre de la categoría" [(ngModel)]="catModel.strNombre" #strNombre="ngModel" width="100%" required>
+                        <input type="text" class="form-control" name="strNombre" id="strNombre" aria-describedby="emailHelp" placeholder="Nombre de la categoría" [(ngModel)]="catModel.strNombre" #strNombre="ngModel" width="100%" required>
                     </div>
                     <div>
-                        <input type="text" name="strDesc" id="strDesc" cols="30" rows="10" placeholder="Descripción" [(ngModel)]="catModel.strDesc">
+                        <input type="text" name="strDesc" class="form-control" id="strDesc" cols="30" rows="10" placeholder="Descripción" [(ngModel)]="catModel.strDesc">
                     </div>
                 </div>
             </div>
         <!-- Botones -->
         <ul class=" list-inline ">
-            <button type="button" class="btn btn-outline-danger" (click)="cancelPUT()">Cancelar</button>
-            <button type="button" class="btn btn-outline-success" (click)="actualizarCategoria()">Actualizar</button>
+            <div class="row">
+                <div class="col-6">
+                    <button type="button" class="btn-block btn btn-danger" (click)="cancelPUT()">Cancelar</button>
+                </div>
+                <div class="col-6">
+                    <button type="button" class="btn-block btn btn-success" (click)="actualizarCategoria()">Actualizar</button>
+                </div>
+            </div>
         </ul>
 
     </div>

@@ -36,24 +36,24 @@ import { CategoriaModel } from '../../models/categoria.model';
       }
 
       // tslint:disable-next-line: variable-name
-      eliminarCategoria(_id: string) {
-        return this.http.delete(`${ this.url }/eliminar/${_id}`).toPromise();
+      eliminarCategoria(id: string) {
+        return this.http.delete(`${ this.url }/eliminar/${id}`).toPromise();
       }
 
 // GESTIÓN DE PLATILLOS
 
       // obtiene todas las api de una categoria en especifica
-    //   obtenerApi(idCat: string) {
-    //     return this.http.get(`${this.url}/obtener/${idCat}`).pipe( map( (data: any) => data)).toPromise();
-    //   }
+      obtenerPlatillos(idCat: string) {
+        return this.http.get(`${this.url}/obtenerP/${idCat}`).pipe( map( (data: any) => data)).toPromise();
+      }
 
-    //   registrarApi(idCat: string, api: any) {
-    //     return this.http.post(`${ this.url }/registrar/${idCat}`, api).toPromise();
-    //   }
+      registrarPlatillos(idCat: string, platillo: any) {
+        return this.http.post(`${ this.url }/registrarP/${idCat}`, platillo).toPromise();
+      }
 
-    //   actualizarApi( idCat: string, idOf: string, api: any ) {
-    //     return this.http.put(`${this.url}/actualizar/${idCat}/${idOf}`, api).toPromise();
-    //   }
+      actualizarPlatillo( idCat: string, idPlatillo: string, platillo: any ) {
+        return this.http.put(`${this.url}/actualizarP/${idCat}/${idPlatillo}`, platillo).toPromise();
+      }
 
     //   eliminarApi(idCat: string, _id: string) {
     //     return this.http.delete(`${ this.url }/eliminar/${idCat}/${_id}`).toPromise();

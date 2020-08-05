@@ -5,17 +5,24 @@
             <div class="row">
                 <div class="form-group col-md-12 col-lg-12">
                     <div>
-                        <input type="text" name="strNombre" id="strNombre" placeholder="Nombre de la categoría" [(ngModel)]="categoria.strNombre" #strNombre="ngModel" width="100%" required>
+                        <input type="text" name="strNombre" class="form-control" id="strNombre" placeholder="Nombre de la categoría" [(ngModel)]="categoria.strNombre" #strNombre="ngModel" width="100%" required>
                     </div>
                     <div>
-                        <input type="text" name="strDesc" id="strDesc" cols="30" rows="10" placeholder="Descripción" [(ngModel)]="categoria.strDesc">
+                        <!-- <input type="text" name="strDesc" class="form-control" id="strDesc" cols="30" rows="10" placeholder="Descripción" [(ngModel)]="categoria.strDesc"> -->
+                        <textarea name="strDesc" id="strDesc"  class="form-control"  placeholder="Descripción" [(ngModel)]="categoria.strDesc" cols="30" rows="5"></textarea>
                     </div>
                 </div>
             </div>
         <!-- Botones -->
         <ul class=" list-inline ">
-            <button type="button" class="btn btn-outline-danger">Cancelar</button>
-            <button type="button" class="btn btn-outline-success" (click)="registrarCategoria()">Registrar</button>
+            <div class="row">
+            <div class="col-6">
+                <button type="button" class="btn-block btn btn-danger">Cancelar</button>
+            </div>
+            <div class="col-6">
+                <button type="button" class="btn-block btn btn-success" (click)="registrarCategoria()">Registrar</button>
+            </div>
+        </div>
         </ul>
 
     </div>

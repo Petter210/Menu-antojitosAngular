@@ -8,3 +8,7 @@ div, #strDesc{
     width: 100%;
     /* display: inline-block; */
 }
+
+#strDesc{
+    resize: none;
+}

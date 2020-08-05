@@ -5,26 +5,32 @@
             <div class="row">
                 <div class="form-group col-md-12 col-lg-12">
                     <div>
-                        <input type="text" name="strNombre" id="strNombre" placeholder="Nombre de la categoría" width="100%">
+                        <input type="text" name="strNombre" id="strNombre" class="form-control" placeholder="Nombre de la categoría" [(ngModel)]="platillo.strNombre" #strNombre="ngModel" width="100%">
                     </div>
                     <div>
-                        <textarea name="strDesc" id="strDesc" cols="30" rows="10" placeholder="Descripción"></textarea>
+                        <textarea name="strDesc" id="strDesc" class="form-control" cols="30" rows="5" placeholder="Descripción" [(ngModel)]="platillo.strDesc"></textarea>
                     </div>
                     <div>
-                        <input type="text" name="strIngre" id="strIngre" placeholder="Ingredientes" width="100%">
+                        <input type="text" name="strIngre" id="strIngre" class="form-control" placeholder="Ingredientes" width="100%" [(ngModel)]="platillo.strIngredientes">
                     </div>
                     <div>
-                        <input type="text" name="nmbPieza" id="nmbPieza" placeholder="Número de piezas" width="100%">
+                        <input type="text" name="nmbPieza" id="nmbPieza" class="form-control" placeholder="Número de piezas" width="100%" [(ngModel)]="platillo.nmbPiezas">
                     </div>
                     <div>
-                        <input type="text" name="nmbPrecio" id="nmbPrecio" placeholder="Precio" width="100%">
+                        <input type="text" name="nmbPrecio" id="nmbPrecio" class="form-control" placeholder="Precio" width="100%" [(ngModel)]="platillo.nmbPrecio">
                     </div>
                 </div>
             </div>
         <!-- Botones -->
         <ul class=" list-inline ">
-            <button type="button" class="btn btn-outline-danger">Cancelar</button>
-            <button type="button" class="btn btn-outline-success">Registrar</button>
+            <div class="row">
+                <div class="col-6">
+                    <button type="button" class="btn btn-block btn-danger">Cancelar</button>
+                </div>
+                <div class="col-6">
+                    <button type="button" class="btn btn-block btn-success" (click)="registrarPlatillo()">Registrar</button>
+                </div>
+            </div>
         </ul>
 
     </div>

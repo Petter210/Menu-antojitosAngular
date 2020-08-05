@@ -12,7 +12,7 @@ import { CategoriaService } from 'src/app/services/categoria/categoria.service';
 export class RegistrarAntojitosComponent implements OnInit {
 
   @Input() idCategoria;
-  @Output() terminarActualizacion = new EventEmitter();
+  @Output() actualiza = new EventEmitter();
   categoria: CategoriaModel = new CategoriaModel();
 
 
@@ -24,13 +24,13 @@ export class RegistrarAntojitosComponent implements OnInit {
   registrarCategoria() {
 
     this.categoriaService.registrarCategoria(this.categoria).then((data: any) => {
-      this.terminarActualizacion.emit(true);
+      this.actualiza.emit(true);
       
       this.categoriaService.obtenerCategoria().then( (data) => {
         console.log(data.categorias);
       });
       console.log(data);
-      this.terminarActualizacion.emit(true);
+      this.actualiza.emit(true);
       // Toast.fire({
       //   icon: 'success',
       //   title: `¡El Espacio de trabajo "${this.trabajo.strNombre}" fue agregadó correctamente!`
